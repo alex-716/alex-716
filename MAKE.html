@@ -1,0 +1,1491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashwin Alex | Photography & Design</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        body {
+            background-color: #fff;
+            color: #1d1d1f;
+            line-height: 1.5;
+        }
+        nav {
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(20px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 76px;
+            padding: 0 40px;
+            position: relative;
+        }
+        .logo {
+            font-size: 26px;
+            font-weight: 700;
+            color: #f5f5f7;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            margin-right: 14px;
+            height: 54px !important;
+            width: 54px !important;
+        }
+        .nav-scroll-wrapper {
+            overflow-x: auto;
+            white-space: nowrap;
+            max-width: 100vw;
+            scrollbar-width: thin;
+            scrollbar-color: #888 #222;
+        }
+        .nav-scroll-wrapper::-webkit-scrollbar {
+            height: 6px;
+        }
+        .nav-scroll-wrapper::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+        .nav-scroll-wrapper::-webkit-scrollbar-track {
+            background: #222;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+        .nav-links li {
+            margin-left: 36px;
+            font-size: 18px;
+        }
+        .nav-links a {
+            color: #f5f5f7;
+            text-decoration: none;
+            font-size: 18px;
+            opacity: 0.85;
+            transition: opacity 0.3s;
+            padding: 12px 10px;
+            border-radius: 8px;
+        }
+        .nav-links a:hover {
+            opacity: 1;
+            background: rgba(255,255,255,0.08);
+        }
+        .btn.btn-dark[aria-label="Book a Free Consultation"] {
+            margin-left: 36px !important;
+            font-size: 17px !important;
+            padding: 14px 32px !important;
+            border-radius: 24px !important;
+            height: auto !important;
+            display: flex;
+            align-items: center;
+        }
+        .hero {
+            height: 100vh;
+            background-color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            background-image: linear-gradient(to bottom right, rgba(20,20,20,0.85) 60%, rgba(0,0,0,0.7) 100%), url('https://images.unsplash.com/photo-1542038784456-1ea8e935640e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            padding: 0 20px;
+        }
+        .hero h1, .hero p, .hero-content p {
+            text-shadow: 0 4px 24px rgba(0,0,0,0.7), 0 1px 2px rgba(0,0,0,0.7);
+        }
+        .hero h1 {
+            font-size: 54px;
+            font-weight: 900;
+            letter-spacing: 1.5px;
+            margin-bottom: 18px;
+            color: #fff;
+            text-transform: uppercase;
+        }
+        .hero p {
+            font-size: 26px;
+            font-weight: 600;
+            color: #f5f5f7;
+        }
+        .hero-content p {
+            font-size: 26px;
+            font-weight: 600;
+            color: #f5f5f7;
+        }
+        .hero-content .tagline {
+            font-size: 22px;
+            color: #ffd700;
+            font-weight: 800;
+            margin-bottom: 18px;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 12px rgba(0,0,0,0.8);
+        }
+        .btn {
+            display: inline-block;
+            background-color: #fff;
+            color: #000;
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            margin: 10px;
+        }
+        .btn-dark {
+            background-color: #000;
+            color: #fff;
+        }
+        .btn:hover {
+            transform: scale(1.05);
+        }
+        .section {
+            padding: 100px 20px;
+        }
+        .section-container {
+            max-width: 980px;
+            margin: 0 auto;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 60px;
+        }
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .portfolio-item {
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+        }
+        .portfolio-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        .portfolio-item-content {
+            padding: 20px;
+            background-color: #fff;
+        }
+        .portfolio-item h3 {
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        .services {
+            background-color: #f5f5f7;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .service-item {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+        .service-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+        .service-item h3 {
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        .order-form-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .form-group {
+            margin-bottom: 25px;
+        }
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #d2d2d7;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: #0071e3;
+        }
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        .submit-btn {
+            background-color: #0071e3;
+            color: #fff;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .submit-btn:hover {
+            background-color: #0077ed;
+            transform: scale(1.02);
+        }
+        .thank-you-message {
+            display: none;
+            margin-top: 20px;
+            color: #0071e3;
+            font-weight: 500;
+            text-align: center;
+        }
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        .about-img {
+            border-radius: 18px;
+            overflow: hidden;
+        }
+        .about-img img {
+            width: 100%;
+            height: auto;
+        }
+        .about-content h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .about-content p {
+            margin-bottom: 20px;
+            font-size: 17px;
+            color: #555;
+        }
+        .skills-container {
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        .skill {
+            margin-bottom: 20px;
+        }
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        .skill-bar {
+            height: 10px;
+            background-color: #e6e6e6;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .skill-progress {
+            height: 100%;
+            background-color: #0071e3;
+            border-radius: 5px;
+            transition: width 1.5s ease-in-out;
+        }
+        .contact {
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+        }
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .contact-item {
+            flex: 1;
+            min-width: 200px;
+            padding: 20px;
+        }
+        .contact-item h3 {
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        .contact-item a {
+            color: #2997ff;
+            text-decoration: none;
+        }
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 20px;
+            transition: all 0.3s;
+        }
+        .social-link:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+        .blog-section {
+            background: #f5f5f7;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        .blog-section h2 {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+        .blog-link {
+            display: inline-block;
+            background: #0071e3;
+            color: #fff;
+            padding: 14px 32px;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        .blog-link:hover {
+            background: #005bb5;
+        }
+        .chatbot-container {
+            max-width: 400px;
+            margin: 60px auto 0 auto;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            padding: 0 0 20px 0;
+            overflow: hidden;
+        }
+        .chatbot-header {
+            background: #0071e3;
+            color: #fff;
+            padding: 18px 24px;
+            font-size: 20px;
+            font-weight: 600;
+            border-radius: 18px 18px 0 0;
+        }
+        .chatbot-messages {
+            height: 320px;
+            overflow-y: auto;
+            padding: 20px;
+            background: #f5f5f7;
+        }
+        .chatbot-message {
+            margin-bottom: 18px;
+            display: flex;
+            align-items: flex-end;
+        }
+        .chatbot-message.user {
+            justify-content: flex-end;
+        }
+        .chatbot-bubble {
+            max-width: 70%;
+            padding: 12px 18px;
+            border-radius: 18px;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+        .chatbot-message.user .chatbot-bubble {
+            background: #0071e3;
+            color: #fff;
+            border-bottom-right-radius: 4px;
+        }
+        .chatbot-message.bot .chatbot-bubble {
+            background: #e6e6e6;
+            color: #222;
+            border-bottom-left-radius: 4px;
+        }
+        .chatbot-input-area {
+            display: flex;
+            border-top: 1px solid #e6e6e6;
+            padding: 12px 16px 0 16px;
+            background: #fff;
+        }
+        .chatbot-input {
+            flex: 1;
+            border: 1px solid #d2d2d7;
+            border-radius: 18px;
+            padding: 10px 16px;
+            font-size: 15px;
+            outline: none;
+        }
+        .chatbot-send-btn {
+            background: #0071e3;
+            color: #fff;
+            border: none;
+            border-radius: 18px;
+            padding: 10px 22px;
+            margin-left: 10px;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .chatbot-send-btn:hover {
+            background: #005bb5;
+        }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 36px; }
+            .hero p { font-size: 18px; }
+            .about { grid-template-columns: 1fr; }
+            /* .nav-links rule removed */
+
+            .nav-container {
+                padding: 0 20px; /* Adjust padding */
+            }
+
+            .hamburger-menu {
+                display: block; /* Show hamburger */
+                order: 3; /* Place hamburger last visually if needed, adjust based on flex setup */
+                margin-left: 15px; /* Space between logo and hamburger */
+            }
+            .logo {
+                order: 1;
+            }
+             .nav-scroll-fade {
+                 display: none !important; /* Hide fade effect on mobile */
+                 order: 4; /* Ensure it doesn't interfere */
+             }
+
+            .nav-collapsible-content {
+                display: none; /* Hide content by default */
+                order: 2; /* This won't apply when display: none, but sets order when display: flex */
+                flex-direction: column;
+                align-items: stretch;
+                position: absolute;
+                top: 76px; /* Below navbar */
+                left: 0; right: 0;
+                background-color: rgba(0, 0, 0, 0.97);
+                padding: 20px 0;
+                z-index: 1000;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+                max-height: calc(100vh - 76px);
+                overflow-y: auto;
+            }
+
+            .nav-collapsible-content.is-open {
+                display: flex; /* Show when menu is active */
+            }
+
+            /* Styles for items within the mobile menu */
+            .nav-collapsible-content .nav-links {
+                display: flex; /* Ensure it's flex for column layout */
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                margin-left: 0; padding: 0; /* Reset desktop spacing */
+            }
+
+            .nav-collapsible-content .nav-links li {
+                margin-left: 0; margin-bottom: 5px; width: 100%;
+            }
+
+            .nav-collapsible-content .nav-links a {
+                padding: 15px 20px; display: block; text-align: center; border-radius: 0;
+                opacity: 0.85;
+            }
+            .nav-collapsible-content .nav-links a:hover {
+                background: rgba(255,255,255,0.12);
+                opacity: 1;
+            }
+
+            /* Mobile style for the "Book" button */
+            .nav-collapsible-content .nav-book-button {
+                order: -1; /* Place button above the links */
+                margin: 15px auto 20px auto !important; /* Center button, provide spacing */
+                font-size: 16px !important;
+                padding: 14px 30px !important;
+                width: fit-content; /* Allow button to size naturally */
+                 /* Reset inherited desktop styles that conflict */
+                 display: block; /* Ensure block for auto margins */
+                 align-items: unset; /* Reset flex alignment */
+                 text-align: center;
+            }
+
+            /* Body scroll lock */
+            body.mobile-menu-open {
+                overflow: hidden;
+            }
+        }
+        /* Article & News Section */
+        .articles-section {
+            background: #f5f5f7;
+            padding: 80px 20px;
+        }
+        .articles-section h2 {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 40px;
+        }
+        .articles-list {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        .article-item {
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+            padding: 24px;
+        }
+        .article-item h3 {
+            margin-bottom: 10px;
+            font-size: 20px;
+            font-weight: 600;
+        }
+        .article-item p {
+            color: #444;
+            font-size: 15px;
+        }
+        /* Experience Timeline */
+        .experience-section {
+            background: #fff;
+            padding: 80px 20px;
+        }
+        .experience-section h2 {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 40px;
+        }
+        .timeline {
+            max-width: 900px;
+            margin: 0 auto;
+            border-left: 3px solid #0071e3;
+            padding-left: 30px;
+        }
+        .timeline-item {
+            margin-bottom: 40px;
+            position: relative;
+        }
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: -38px;
+            top: 0;
+            width: 18px;
+            height: 18px;
+            background: #0071e3;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .timeline-item h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        .timeline-item .role {
+            font-size: 16px;
+            color: #0071e3;
+            margin-bottom: 4px;
+        }
+        .timeline-item .period {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 8px;
+        }
+        .timeline-item ul {
+            margin-left: 18px;
+            color: #444;
+            font-size: 15px;
+        }
+        /* Skills, Achievements, Education, Additional Info */
+        .info-section {
+            background: #f5f5f7;
+            padding: 80px 20px;
+        }
+        .info-section h2 {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 40px;
+        }
+        .info-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        .info-block {
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+            padding: 32px 28px;
+        }
+        .info-block h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        .info-block ul, .info-block p {
+            font-size: 15px;
+            color: #444;
+            margin-bottom: 10px;
+        }
+        /* Optional: fade effect at the right edge for scroll cue */
+        .nav-scroll-fade {
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: 40px;
+            pointer-events: none;
+            background: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0.7));
+            z-index: 2;
+            display: none;
+        }
+        @media (max-width: 1200px) {
+            .nav-scroll-fade { display: block; }
+        }
+
+        /* Hamburger Menu Styles */
+        .hamburger-menu {
+            display: none; /* Hidden by default */
+            background: none; border: none; cursor: pointer; padding: 10px; z-index: 1001;
+            margin-left: auto; /* Push hamburger to the right on desktop before collapsible content if needed */
+        }
+        .hamburger-bar {
+            display: block; width: 25px; height: 3px; margin: 5px auto; background-color: #f5f5f7; transition: all 0.3s ease-in-out;
+        }
+        .hamburger-menu.is-active .hamburger-bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .hamburger-menu.is-active .hamburger-bar:nth-child(2) { opacity: 0; }
+        .hamburger-menu.is-active .hamburger-bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+        /* Collapsible Content Wrapper - Adjust flex behavior */
+        .nav-collapsible-content {
+            display: flex;
+            align-items: center;
+            /* Removed flex-grow and justify-end from previous attempt; let items flow naturally */
+        }
+         /* Target the button specifically now it has nav-book-button class */
+         .nav-collapsible-content .nav-book-button {
+             /* Use original button styles for desktop */
+             margin-left: 36px !important; /* From .btn.btn-dark[aria-label=...] */
+             font-size: 17px !important; /* From .btn.btn-dark[aria-label=...] */
+             padding: 14px 32px !important; /* From .btn.btn-dark[aria-label=...] */
+             border-radius: 24px !important; /* From .btn.btn-dark[aria-label=...] */
+             height: auto !important; /* From .btn.btn-dark[aria-label=...] */
+             display: flex; /* From .btn.btn-dark[aria-label=...] */
+             align-items: center; /* From .btn.btn-dark[aria-label=...] */
+             /* Inherit general .btn styles */
+              background-color: #000;
+              color: #fff;
+              text-decoration: none;
+              font-weight: 500;
+              transition: all 0.3s;
+         }
+         .nav-collapsible-content .nav-links {
+             /* Retain original desktop styles */
+             display: flex;
+             list-style: none;
+             align-items: center;
+         }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo"><img src="https://i.postimg.cc/W1Xt4YVx/Firefly-20250511220024.jpg" alt="Logo" style="height:40px;width:40px;border-radius:50%;object-fit:cover;vertical-align:middle;"> Ashwin Alex</a>
+            <button class="hamburger-menu" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navCollapsibleContent">
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+            </button>
+            <div class="nav-collapsible-content" id="navCollapsibleContent">
+                 <a href="#order" class="btn btn-dark nav-book-button" style="/* Adjusted styles might be needed below or in CSS */" aria-label="Book a Free Consultation">Book a Free Consultation</a>
+                 <ul class="nav-links">
+                <li><a href="#portfolio" aria-label="Portfolio section">Portfolio</a></li>
+                <li><a href="#services" aria-label="Services section">Services</a></li>
+                <li><a href="#order" aria-label="Order section">Order</a></li>
+                <li><a href="#about" aria-label="About section">About</a></li>
+                <li><a href="#contact" aria-label="Contact section">Contact</a></li>
+                <li><a href="#blog" aria-label="Blog section">Blog</a></li>
+                <li><a href=".articles-section" aria-label="Articles section">Articles</a></li>
+                <li><a href=".experience-section" aria-label="Experience section">Experience</a></li>
+                <li><a href=".info-section" aria-label="Education & Skills section">Education</a></li>
+                <li><a href="#testimonials" aria-label="Testimonials section">Testimonials</a></li>
+                <li><a href="#packages" aria-label="Packages & Pricing section">Packages</a></li>
+                <li><a href="#awards" aria-label="Awards section">Awards</a></li>
+                <li><a href="#faq" aria-label="FAQ section">FAQ</a></li>
+                <li><a href="#newsletter" aria-label="Newsletter section">Newsletter</a></li>
+            </ul>
+            </div> <!-- Close nav-collapsible-content -->
+            <div class="nav-scroll-fade"></div> <!-- Keep fade outside -->
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Capturing moments. Creating designs.</h1>
+            <p class="tagline">Award-winning design & photography for brands that want to stand out.</p>
+            <p>Professional photography and graphic design services tailored to your unique vision.</p>
+            <div>
+                <a href="#portfolio" class="btn">View Portfolio</a>
+                <a href="#order" class="btn btn-dark">Request Order</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section">
+        <div class="section-container">
+            <h2 class="section-title">Portfolio</h2>
+            <div class="portfolio-grid">
+                <!-- Portfolio items with sample images/thumbnails -->
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80" alt="Branding & Visual Identity Project">
+                    <div class="portfolio-item-content">
+                        <h3>Branding & Visual Identity Project</h3>
+                        <a href="https://drive.google.com/file/d/1J_1jrZmoE4qcnrRIE__RZBXF6JHwfyt7/view" class="btn" target="_blank">View Project PDF</a>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80" alt="Apparel Graphics Portfolio">
+                    <div class="portfolio-item-content">
+                        <h3>Apparel Graphics Portfolio</h3>
+                        <a href="https://drive.google.com/file/d/1po6Sgeu8sT_9xzn-XntPLL9-bgHmnZma/view" class="btn" target="_blank">View Project PDF</a>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Marketing Collateral Showcase">
+                    <div class="portfolio-item-content">
+                        <h3>Marketing Collateral Showcase</h3>
+                        <a href="https://drive.google.com/file/d/1LJFhkxoIMP4tfXjsOKj1Q638zp2lZRYb/view" class="btn" target="_blank">View Project PDF</a>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=800&q=80" alt="Scriptwriting & Storyboarding Sample">
+                    <div class="portfolio-item-content">
+                        <h3>Scriptwriting & Storyboarding Sample</h3>
+                        <a href="https://docs.google.com/document/d/1_3wd-BCqnSjZjjjHieK1H0E3J8xet2TR30nal2lZbjI/edit?tab=t.0" class="btn" target="_blank">View Project Doc</a>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=800&q=80" alt="2D Animation Specialist Portfolio">
+                    <div class="portfolio-item-content">
+                        <h3>2D Animation Specialist Portfolio</h3>
+                        <a href="https://drive.google.com/file/d/1OxFvOh3fiY6uI-hrwLpEwk6XbtRzugHN/view" class="btn" target="_blank">View Project PDF</a>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1461344577544-4e5dc9487184?auto=format&fit=crop&w=800&q=80" alt="Freelance Design Projects">
+                    <div class="portfolio-item-content">
+                        <h3>Freelance Design Projects</h3>
+                        <a href="https://drive.google.com/file/d/15TLuKJ250LeBWp17MziUNHKlFwcN6yDo/view" class="btn" target="_blank">View Project PDF</a>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align:center;margin-top:30px;">
+                <a href="https://www.linkedin.com/in/ashwin-alex-933651317" class="btn btn-dark" target="_blank">View Full Portfolio on LinkedIn</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section services">
+        <div class="section-container">
+            <h2 class="section-title">Services</h2>
+            <div class="services-grid">
+                <div class="service-item">
+                    <div class="service-icon">📸</div>
+                    <h3>Photography</h3>
+                    <p>Professional photography services including product, portrait, event, and architectural photography.</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">🎨</div>
+                    <h3>Graphic Design</h3>
+                    <p>Creative graphic design services for branding, marketing materials, social media, and more.</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">💻</div>
+                    <h3>Digital Design</h3>
+                    <p>Web design, UI/UX design, and digital asset creation for modern platforms.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Form Section -->
+    <section id="order" class="section">
+        <div class="section-container">
+            <h2 class="section-title">Request an Order</h2>
+            <div class="order-form-container">
+                <form id="orderForm" action="https://formsubmit.co/creator.bishop@gmail.com" method="POST">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Your Name</label>
+                        <input type="text" id="name" name="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone" class="form-label">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="service" class="form-label">Service Type</label>
+                        <select id="service" name="service" class="form-control" required>
+                            <option value="">Select a service</option>
+                            <option value="photography">Photography</option>
+                            <option value="graphic-design">Graphic Design</option>
+                            <option value="web-design">Web Design</option>
+                            <option value="branding">Branding</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="budget" class="form-label">Budget Range</label>
+                        <select id="budget" name="budget" class="form-control">
+                            <option value="">Select budget range</option>
+                            <option value="under-500">Under ₹500</option>
+                            <option value="500-1000">₹500 - ₹1,000</option>
+                            <option value="1000-2000">₹1,000 - ₹2,000</option>
+                            <option value="2000-5000">₹2,000 - ₹5,000</option>
+                            <option value="above-5000">Above ₹5,000</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="description" class="form-label">Project Description</label>
+                        <textarea id="description" name="description" class="form-control" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="file" class="form-label">Upload Reference File (optional)</label>
+                        <input type="file" id="file" name="file" class="form-control" aria-label="Upload reference file">
+                    </div>
+                    <div class="form-group">
+                        <label for="deadline" class="form-label">Preferred Deadline</label>
+                        <input type="date" id="deadline" name="deadline" class="form-control">
+                    </div>
+                    <button type="submit" class="submit-btn">Submit Request</button>
+                    <div class="thank-you-message" id="thankYouOrder">Thank you for your order request! I will get back to you within 24 hours.</div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Articles & News Section -->
+    <section class="articles-section">
+        <h2>Articles & News</h2>
+        <div class="articles-list">
+            <div class="article-item">
+                <h3>How Visual Storytelling Drives Brand Engagement</h3>
+                <p>Explore the impact of 2D animation and graphic design in building memorable brand stories and increasing audience engagement.</p>
+            </div>
+            <div class="article-item">
+                <h3>Designing for Social Media: Trends & Tips (2024)</h3>
+                <p>Discover the latest trends in social media graphics and how creative design can boost your brand's online presence.</p>
+            </div>
+            <div class="article-item">
+                <h3>Behind the Scenes: Award-Winning Short Film</h3>
+                <p>Go inside the creative process of co-writing and storyboarding an award-winning short film in 2023.</p>
+            </div>
+            <div class="article-item">
+                <h3>Internship Insights: From Arena Animation to St. Joseph's University</h3>
+                <p>Lessons learned and skills gained during my journey through top animation and multimedia programs in Bengaluru.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section (Expanded) -->
+    <section id="blog" class="blog-section">
+        <h2>Blog</h2>
+        <a href="https://adulthoodtimes.blogspot.com/" class="blog-link" target="_blank">Visit My Blog</a>
+        <div style="max-width:700px;margin:24px auto 0 auto;text-align:left;font-size:16px;color:#333;">
+            <ul style="margin-left:20px;">
+                <li>Reflective blog on growing up and navigating adult life through personal anecdotes and creative metaphors.</li>
+                <li>Explores identity, self-discovery, and emotional challenges of adulthood.</li>
+                <li>Shares stories about Bengaluru life, generational values, and social norms.</li>
+                <li>Discusses mental health topics like depression and motivation.</li>
+                <li>Encourages self-expression, authenticity, and community support for readers facing similar struggles.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience-section">
+        <h2>Professional Experience</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>Avioby</h3>
+                <div class="role">Graphic Designer</div>
+                <div class="period">Jan 2025 - Present</div>
+                <ul>
+                    <li>Designed apparel graphics for 3 seasonal collections, contributing to a 20% increase in sales.</li>
+                    <li>Collaborated with marketing teams to develop visual storytelling frameworks for brand campaigns.</li>
+                    <li>Created 50+ branded assets, improving brand consistency across digital and print media.</li>
+                </ul>
+                </div>
+            <div class="timeline-item">
+                <h3>Stonesoup.in</h3>
+                <div class="role">Freelance Graphic Designer</div>
+                <div class="period">Aug 2024 - Nov 2024</div>
+                <ul>
+                    <li>Developed logos, brochures, and social media kits for 12+ business ideas, enhancing brand recognition.</li>
+                    <li>Streamlined design workflows, reducing revision cycles by 40% through improved mockups.</li>
+                    <li>Produced marketing collateral that increased client engagement by 25%.</li>
+                </ul>
+                            </div>
+            <div class="timeline-item">
+                <h3>OS CODE</h3>
+                <div class="role">Design Intern</div>
+                <div class="period">June 2023 - May 2024</div>
+                <ul>
+                    <li>Designed award-winning tech brochures for 5 SaaS companies.</li>
+                    <li>Automated template workflows, saving 10+ hours per month in design production.</li>
+                </ul>
+                            </div>
+                        </div>
+    </section>
+
+    <!-- Education & Certifications Section -->
+    <section class="info-section">
+        <h2>Education & Certifications</h2>
+        <div class="info-grid">
+            <div class="info-block">
+                <h3>Education</h3>
+                <ul>
+                    <li><b>Bachelor of Vocation in Multimedia & Animation</b> – St. Joseph's University, 2024</li>
+                    <li><b>Advanced Diploma in 2D Animation & VFX</b> – Arena Animation, Jayanagar, 2023</li>
+                </ul>
+                            </div>
+            <div class="info-block">
+                <h3>Certifications</h3>
+                <ul>
+                    <li>2D Animation Specialist, 2024</li>
+                    <li>Adobe Certified Associate (Illustrator, Animate, Photoshop, Premiere Pro), 2023</li>
+                </ul>
+                            </div>
+                        </div>
+    </section>
+
+    <!-- Technical Skills, Achievements, Additional Info Section -->
+    <section class="info-section">
+        <h2>Skills, Achievements & More</h2>
+        <div class="info-grid">
+            <div class="info-block">
+                <h3>Technical Skills</h3>
+                <ul>
+                    <li><b>Design:</b> Graphic Design, Logo Design, Brand Identity, Print/Digital Media, Apparel Graphics</li>
+                    <li><b>Animation & Film:</b> 2D Animation, Storyboarding, Cinematography, Scriptwriting</li>
+                    <li><b>Software:</b> Adobe Photoshop, Adobe Illustrator, Adobe Premiere Pro, DaVinci Resolve</li>
+                    <li><b>Marketing:</b> Social Media Marketing, Content Strategy, Audience Engagement</li>
+                </ul>
+                            </div>
+            <div class="info-block">
+                <h3>Key Achievements</h3>
+                <ul>
+                    <li>Increased Instagram engagement by 15% in 3 months through targeted content strategies.</li>
+                    <li>Co-wrote and storyboarded an award-winning short film (2023).</li>
+                    <li>Designed 20+ university social media posters, growing follower count by 30%.</li>
+                </ul>
+                            </div>
+            <div class="info-block">
+                <h3>Additional Information</h3>
+                <ul>
+                    <li><b>Languages:</b> English (Fluent), Kannada (Native), Tamil (Fluent), Hindi (Fluent)</li>
+                    <li><b>Volunteer:</b> Photography at Startup Mela; Chief Executive in Media at St Joseph University for an event</li>
+                </ul>
+                        </div>
+                            </div>
+    </section>
+
+    <!-- About Section (Updated) -->
+    <section id="about" class="section">
+        <div class="section-container">
+            <div class="about">
+                <div class="about-img">
+                    <img src="https://i.postimg.cc/W1Xt4YVx/Firefly-20250511220024.jpg" alt="About Me" style="width:100%;height:auto;object-fit:cover;">
+                </div>
+                <div class="about-content">
+                    <h2>About Ashwin Alex</h2>
+                    <p><b>Creative Multimedia Artist with 5+ years of experience</b> in graphic design, 2D animation, and visual storytelling. Proficient in Adobe Creative Suite (Photoshop, Illustrator, Premiere Pro), DaVinci Resolve, and branding design. Proven ability to increase social media engagement by 15% and design award-winning marketing collateral. Collaborative professional with expertise in apparel graphics, cinematography, and scriptwriting.</p>
+                    <p><b>Journey:</b> Started in 2022 at Arena Animation, Jayanagar. Joined St Joseph University, Bangalore in 2024. Completed internships and contributed to multiple award-winning projects.</p>
+                    <p><b>Location:</b> Bengaluru, India<br><b>Email:</b> creator.bishop@gmail.com<br><b>Portfolio:</b> <a href="https://ashwinalex.carrd.co" target="_blank">ashwinalex.carrd.co</a><br><b>LinkedIn:</b> <a href="https://linkedin.com/in/ashwin-alex-933651317" target="_blank">linkedin.com/in/ashwin-alex-933651317</a></p>
+                    <p><b>Years of Experience:</b> 4</p>
+                    <a href="#contact" class="btn btn-dark">Get in Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="section-container">
+            <h2 class="section-title">Contact</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>Email</h3>
+                    <a href="mailto:creator.bishop@gmail.com">creator.bishop@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <h3>Phone</h3>
+                    <a href="tel:7829203243">(+91) 78292 03243</a>
+                </div>
+                <div class="contact-item">
+                    <h3>Social Media</h3>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/orbonium/" class="social-link" target="_blank">IG</a>
+                        <a href="https://www.linkedin.com/in/ashwin-alex-933651317" class="social-link" target="_blank">LI</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section" style="background:#f5f5f7;">
+        <div class="section-container">
+            <h2 class="section-title">What Clients Say</h2>
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:30px;max-width:900px;margin:0 auto;">
+                <div style="background:#fff;padding:28px;border-radius:14px;box-shadow:0 2px 10px rgba(0,0,0,0.06);">
+                    <p style="font-size:17px;">"Ashwin's designs elevated our brand. The process was smooth and the results were stunning!"</p>
+                    <div style="margin-top:12px;font-weight:600;">— Priya S., Startup Founder</div>
+                </div>
+                <div style="background:#fff;padding:28px;border-radius:14px;box-shadow:0 2px 10px rgba(0,0,0,0.06);">
+                    <p style="font-size:17px;">"The photoshoot captured our team perfectly. Highly recommend for creative projects."</p>
+                    <div style="margin-top:12px;font-weight:600;">— Rahul M., Marketing Lead</div>
+                </div>
+                <div style="background:#fff;padding:28px;border-radius:14px;box-shadow:0 2px 10px rgba(0,0,0,0.06);">
+                    <p style="font-size:17px;">"Professional, creative, and always on time. Will work with Ashwin again!"</p>
+                    <div style="margin-top:12px;font-weight:600;">— Sneha K., Event Manager</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted by Section -->
+    <section class="section" style="background:#fff;padding:40px 0 30px 0;">
+        <div class="section-container" style="text-align:center;">
+            <h3 style="font-size:22px;font-weight:500;margin-bottom:24px;">Trusted by</h3>
+            <div style="display:flex;justify-content:center;gap:40px;align-items:center;flex-wrap:wrap;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" style="height:36px;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg" alt="Nike" style="height:36px;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" style="height:36px;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM" style="height:36px;">
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages & Pricing Section -->
+    <section class="section" style="background:#f5f5f7;">
+        <div class="section-container">
+            <h2 class="section-title">Packages & Pricing</h2>
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:30px;max-width:900px;margin:0 auto;">
+                <div style="background:#fff;padding:28px;border-radius:14px;box-shadow:0 2px 10px rgba(0,0,0,0.06);">
+                    <h3 style="margin-bottom:10px;">Starter</h3>
+                    <p>Logo design or 1-hour photoshoot</p>
+                    <div style="font-size:22px;font-weight:700;margin:12px 0;">₹2,000</div>
+                    <ul style="font-size:15px;color:#444;line-height:1.7;margin-bottom:12px;">
+                        <li>1 revision</li>
+                        <li>Delivery in 3 days</li>
+                    </ul>
+                    <a href="#order" class="btn btn-dark" style="width:100%;text-align:center;">Book Now</a>
+                </div>
+                <div style="background:#fff;padding:28px;border-radius:14px;box-shadow:0 2px 10px rgba(0,0,0,0.06);">
+                    <h3 style="margin-bottom:10px;">Professional</h3>
+                    <p>Branding kit or 3-hour photoshoot</p>
+                    <div style="font-size:22px;font-weight:700;margin:12px 0;">₹5,000</div>
+                    <ul style="font-size:15px;color:#444;line-height:1.7;margin-bottom:12px;">
+                        <li>3 revisions</li>
+                        <li>Delivery in 7 days</li>
+                    </ul>
+                    <a href="#order" class="btn btn-dark" style="width:100%;text-align:center;">Book Now</a>
+                </div>
+                <div style="background:#fff;padding:28px;border-radius:14px;box-shadow:0 2px 10px rgba(0,0,0,0.06);">
+                    <h3 style="margin-bottom:10px;">Enterprise</h3>
+                    <p>Full branding + campaign or full-day shoot</p>
+                    <div style="font-size:22px;font-weight:700;margin:12px 0;">₹12,000</div>
+                    <ul style="font-size:15px;color:#444;line-height:1.7;margin-bottom:12px;">
+                        <li>Unlimited revisions</li>
+                        <li>Delivery in 14 days</li>
+                    </ul>
+                    <a href="#order" class="btn btn-dark" style="width:100%;text-align:center;">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Awards Section -->
+    <section class="section" style="background:#fff;">
+        <div class="section-container">
+            <h2 class="section-title">Featured Awards</h2>
+            <ul style="font-size:16px;color:#444;line-height:1.8;max-width:700px;margin:0 auto 20px auto;">
+                <li>Winner, Best Short Film Storyboard – Bengaluru Design Awards 2023</li>
+                <li>Top 10 Graphic Designers – India Creative Summit 2024</li>
+                <li>Featured in 'Design Today' Magazine, 2024</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section" style="background:#f5f5f7;">
+        <div class="section-container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div style="max-width:800px;margin:0 auto;">
+                <div style="margin-bottom:18px;"><b>How do I book a service?</b><br>Simply use the order form or the 'Book a Free Consultation' button in the navigation bar.</div>
+                <div style="margin-bottom:18px;"><b>What is your turnaround time?</b><br>Starter packages are delivered in 3 days, professional in 7 days, and enterprise in 14 days.</div>
+                <div style="margin-bottom:18px;"><b>Can I request revisions?</b><br>Yes! All packages include revisions as listed above.</div>
+                <div style="margin-bottom:18px;"><b>Do you offer custom packages?</b><br>Absolutely. Contact me for a tailored quote.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Signup -->
+    <section class="section" style="background:#fff;padding:40px 0 30px 0;">
+        <div class="section-container" style="text-align:center;max-width:500px;">
+            <h2 style="font-size:24px;font-weight:600;margin-bottom:18px;">Stay Inspired! Join the Newsletter</h2>
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc7tgQVOOmUW44Awmvq2FFaih__Hp2JM3THfaprwKJcMvM4ZQ/viewform?embedded=true" width="100%" height="1320" frameborder="0" marginheight="0" marginwidth="0" title="Newsletter Signup Google Form" aria-label="Newsletter Signup Google Form">Loading…</iframe>
+            <div id="newsletterThankYou" style="display:none;font-size:16px;color:#0071e3;margin-top:16px;">Thank you for subscribing! Stay tuned for updates.</div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Ashwin Alex. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" aria-label="Back to top" style="display:none;position:fixed;bottom:32px;right:32px;z-index:999;background:#222;color:#fff;border:none;border-radius:50%;width:48px;height:48px;box-shadow:0 2px 8px rgba(0,0,0,0.18);font-size:28px;cursor:pointer;transition:background 0.2s;">↑</button>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Order Form: Show thank you message below submit button
+        const orderForm = document.getElementById('orderForm');
+        const thankYou = document.getElementById('thankYouOrder');
+        let orderSubmitting = false;
+        orderForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (orderSubmitting) return;
+            orderSubmitting = true;
+            thankYou.style.display = 'none';
+            thankYou.textContent = 'Thank you for your order request! I will get back to you within 24 hours.';
+            var form = this;
+            var formData = new FormData(form);
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            }).then(function(response) {
+                if (response.ok) {
+                    thankYou.style.display = 'block';
+                    form.reset();
+                } else {
+                    thankYou.style.display = 'block';
+                    thankYou.textContent = 'There was an error. Please try again later.';
+                }
+                orderSubmitting = false;
+            }).catch(function() {
+                thankYou.style.display = 'block';
+                thankYou.textContent = 'There was an error. Please try again later.';
+                orderSubmitting = false;
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Animate skill bars on scroll
+        const skillSection = document.querySelector('.skills-container');
+        const skillBars = document.querySelectorAll('.skill-progress');
+        const originalWidths = [];
+        skillBars.forEach(bar => {
+            const width = bar.getAttribute('style').match(/width:\s*(\d+%)/)[1];
+            originalWidths.push(width);
+            bar.style.width = '0';
+        });
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.bottom >= 0
+            );
+        }
+        function animateSkills() {
+            if (isInViewport(skillSection)) {
+                skillBars.forEach((bar, index) => {
+                    setTimeout(() => {
+                        bar.style.width = originalWidths[index];
+                    }, index * 150);
+                });
+                window.removeEventListener('scroll', animateSkills);
+            }
+        }
+        window.addEventListener('scroll', animateSkills);
+        animateSkills();
+
+        // Animate on scroll utility
+        function isInViewportOffset(element, offset = 100) {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top <= (window.innerHeight - offset || document.documentElement.clientHeight - offset) &&
+                rect.bottom >= 0
+            );
+        }
+        function animateOnScroll() {
+            const animateElements = document.querySelectorAll('.animate-on-scroll');
+            animateElements.forEach(element => {
+                if (isInViewportOffset(element)) {
+                    element.classList.add('animate');
+                }
+            });
+        }
+        // Portfolio items fade and slide in
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        portfolioItems.forEach((item, index) => {
+            item.classList.add('animate-on-scroll');
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(30px)';
+            item.style.transition = `opacity 0.6s ease, transform 0.6s ease ${index * 0.1}s`;
+        });
+        // Service items fade in
+        const serviceItems = document.querySelectorAll('.service-item');
+        serviceItems.forEach((item, index) => {
+            item.classList.add('animate-on-scroll');
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(30px)';
+            item.style.transition = `opacity 0.6s ease, transform 0.6s ease ${index * 0.1}s`;
+        });
+        // About section elements fade in
+        const aboutContent = document.querySelector('.about-content');
+        if (aboutContent) {
+            aboutContent.classList.add('animate-on-scroll');
+            aboutContent.style.opacity = '0';
+            aboutContent.style.transform = 'translateX(30px)';
+            aboutContent.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        }
+        const aboutImg = document.querySelector('.about-img');
+        if (aboutImg) {
+            aboutImg.classList.add('animate-on-scroll');
+            aboutImg.style.opacity = '0';
+            aboutImg.style.transform = 'translateX(-30px)';
+            aboutImg.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        }
+        // Form controls subtle fade in
+        const formControls = document.querySelectorAll('.form-control');
+        formControls.forEach((control, index) => {
+            control.classList.add('animate-on-scroll');
+            control.style.opacity = '0';
+            control.style.transform = 'translateY(10px)';
+            control.style.transition = `opacity 0.4s ease, transform 0.4s ease ${index * 0.05}s`;
+        });
+        // Contact items zoom in
+        const contactItems = document.querySelectorAll('.contact-item');
+        contactItems.forEach((item, index) => {
+            item.classList.add('animate-on-scroll');
+            item.style.opacity = '0';
+            item.style.transform = 'scale(0.95)';
+            item.style.transition = `opacity 0.6s ease, transform 0.6s ease ${index * 0.1}s`;
+        });
+        // Section titles animation
+        const sectionTitles = document.querySelectorAll('.section-title');
+        sectionTitles.forEach(title => {
+            title.classList.add('animate-on-scroll');
+            title.style.opacity = '0';
+            title.style.transform = 'translateY(20px)';
+            title.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+        });
+        // Social links pulse effect
+        const socialLinks = document.querySelectorAll('.social-link');
+        socialLinks.forEach(link => {
+            link.addEventListener('mouseenter', () => {
+                link.style.animation = 'pulse 0.4s ease';
+            });
+            link.addEventListener('animationend', () => {
+                link.style.animation = '';
+            });
+        });
+        // Hero content subtle animation
+        const heroContent = document.querySelector('.hero-content');
+        if (heroContent) {
+            heroContent.style.opacity = '0';
+            heroContent.style.transform = 'translateY(30px)';
+            heroContent.style.transition = 'opacity 1s ease, transform 1s ease';
+            setTimeout(() => {
+                heroContent.style.opacity = '1';
+                heroContent.style.transform = 'translateY(0)';
+            }, 300);
+        }
+        // Navbar subtle animation on scroll
+        const navbar = document.querySelector('nav');
+        let lastScrollTop = 0;
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > 100) {
+                navbar.style.boxShadow = '0 4px 10px rgba(0, 0, 0, 0.1)';
+            } else {
+                navbar.style.boxShadow = 'none';
+            }
+            lastScrollTop = scrollTop;
+        });
+        // CSS animation for pulse effect
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes pulse {
+                0% { transform: scale(1); }
+                50% { transform: scale(1.1); }
+                100% { transform: scale(1); }
+            }
+            .animate {
+                opacity: 1 !important;
+                transform: translate(0) scale(1) !important;
+            }
+            .btn:hover {
+                transform: scale(1.05);
+                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            }
+            .submit-btn:hover {
+                transform: scale(1.05);
+                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            }
+            .portfolio-item:hover img {
+                transform: scale(1.05);
+                transition: transform 0.4s ease;
+            }
+            .service-icon {
+                transition: transform 0.3s ease;
+            }
+            .service-item:hover .service-icon {
+                transform: translateY(-5px);
+            }
+        `;
+        document.head.appendChild(style);
+        animateOnScroll();
+        window.addEventListener('scroll', animateOnScroll);
+
+        // Back to Top Button
+        const backToTopBtn = document.getElementById('backToTop');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                backToTopBtn.style.display = 'block';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        });
+        backToTopBtn.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Hamburger Menu Toggle
+        const hamburgerBtn = document.querySelector('.hamburger-menu');
+        const navContent = document.querySelector('#navCollapsibleContent');
+
+        if (hamburgerBtn && navContent) {
+            const navItemsToCloseMenu = navContent.querySelectorAll('.nav-links a, .nav-book-button');
+
+            hamburgerBtn.addEventListener('click', (event) => {
+                event.stopPropagation();
+                const isOpen = navContent.classList.toggle('is-open');
+                hamburgerBtn.setAttribute('aria-expanded', isOpen.toString());
+                hamburgerBtn.classList.toggle('is-active');
+                document.body.classList.toggle('mobile-menu-open', isOpen); // Toggle body class for scroll lock
+            });
+
+            // Close mobile menu when a link/button inside it is clicked
+            navItemsToCloseMenu.forEach(item => {
+                item.addEventListener('click', () => {
+                    // Use setTimeout to allow scroll navigation to potentially start before closing
+                    setTimeout(() => {
+                        if (hamburgerBtn.getAttribute('aria-expanded') === 'true') {
+                            navContent.classList.remove('is-open');
+                            hamburgerBtn.setAttribute('aria-expanded', 'false');
+                            hamburgerBtn.classList.remove('is-active');
+                            document.body.classList.remove('mobile-menu-open');
+                        }
+                    }, 100); // Small delay
+                });
+            });
+
+            // Close menu if clicked outside of it (optional)
+            document.addEventListener('click', (event) => {
+                if (hamburgerBtn.getAttribute('aria-expanded') === 'true' &&
+                    !navContent.contains(event.target) &&
+                    !hamburgerBtn.contains(event.target)) {
+                    navContent.classList.remove('is-open');
+                    hamburgerBtn.setAttribute('aria-expanded', 'false');
+                    hamburgerBtn.classList.remove('is-active');
+                    document.body.classList.remove('mobile-menu-open');
+                }
+            });
+        }
+    });
+    </script>
+</body>
+</html>
